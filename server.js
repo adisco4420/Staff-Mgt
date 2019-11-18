@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const UserRoute = require('./routes/UserRoute');
+const StaffRoute = require('./routes/StaffRoute');
 const port = process.env.PORT || 6004; 
 const app = express();
 const env = require('./env');
@@ -23,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use('/user', UserRoute);
-
+app.use('/staff', StaffRoute)
 app.listen(port).on('listening', () => {
   console.log('We are live on ' + port);
 });

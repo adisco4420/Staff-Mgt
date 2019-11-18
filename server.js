@@ -6,6 +6,7 @@ const StaffRoute = require('./routes/StaffRoute');
 const port = process.env.PORT || 6004; 
 const app = express();
 const env = require('./env');
+const path = require('path');
 // Connect to MongoDB
 mongoose
   .connect(env.MONGODB_URI, { useNewUrlParser: true })
@@ -20,6 +21,7 @@ app.use(cors());
 
 // Add middlewares for parsing JSON and urlencoded data and populating `req.body`
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname + './uploads')))
 
 app.use(express.json());
 

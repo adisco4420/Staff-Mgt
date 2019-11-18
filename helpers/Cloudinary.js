@@ -19,7 +19,7 @@ const uploader = (req, res, next) => {
         fs.rename(file.path, path.join(form.uploadDir, file.name), (err) => {
             if(err) throw err;
         })
-        filePath = form.uploadDir + '\\' +file.name;
+        filePath = form.uploadDir + '/' +file.name;
     });
     form.on('field', (name, value) => {
         req[name] = value;
@@ -41,6 +41,7 @@ const uploader = (req, res, next) => {
                   error: err,
                   filePath
               })
+
               fs.unlinkSync(filePath)
               req.imageUrl = image.url;
               req.staffId = staffId

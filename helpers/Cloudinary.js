@@ -37,7 +37,10 @@ const uploader = (req, res, next) => {
                 overwrite: true
             }, // directory and tags are optional
             function(err, image) {
-              if (err) return res.status(500).send(err)
+              if (err) return res.status(500).send({
+                  error: err,
+                  filePath
+              })
               fs.unlinkSync(filePath)
               req.imageUrl = image.url;
               req.staffId = staffId

@@ -5,5 +5,9 @@ module.exports = {
     JWT_SECRET: process.env.JWT_SECRET,
     MONGODB_URI: process.env.MONGODB_URI,
     SENDGRID_KEY: process.env.SENDGRID_KEY,
-    BASEURL: process.env.BASEURL
+    BASEURL: process.env.BASEURL,
+    cloudinary: {
+        apiKey: process.env.CDYapiKey,
+        secretKey: process.env.CDYsecretKey
+    }
 }
